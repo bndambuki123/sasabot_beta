@@ -16,10 +16,14 @@ export default defineConfig({
           'vendor': ['react', 'react-dom', 'react-router-dom'],
         }
       }
-    }
+    },
+    // Ensure clean URLs work
+    assetsDir: 'assets',
   },
   server: {
     port: 5173,
     strictPort: true,
+    // Add historyApiFallback for local development
+    historyApiFallback: true,
   }
 });
