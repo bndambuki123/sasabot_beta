@@ -8,10 +8,12 @@ import { Signup } from './pages/Signup';
 import { Faq } from './pages/Faq';
 import { PrivacyPolicy } from './pages/PrivacyPolicy';
 import { TermsOfService } from './pages/TermsOfService';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
     <Router>
+      <Toaster position="top-right" />
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
