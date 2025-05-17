@@ -19,10 +19,10 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/demo" element={<Demo />} />
 {/*           <Route path="/pricing" element={<Pricing />} />
-          <Route path="/signup" element={<Signup />} />
+          <Route path="/signup" element={<Signup />} /> */}
           <Route path="/faq" element={<Faq />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/terms-of-service" element={<TermsOfService />} /> */}
+          <Route path="/terms-of-service" element={<TermsOfService />} />
         </Routes>
       </Layout>
     </Router>
