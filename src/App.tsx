@@ -30,7 +30,7 @@ import { Toaster } from 'react-hot-toast';
 // }
 
 // src/App.tsx
-export default function App() {
+function App() {
   return <h1>Hello from Sasabot Beta!</h1>;
 }
 
