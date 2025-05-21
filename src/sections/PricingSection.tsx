@@ -34,7 +34,7 @@ export const PricingSection = () => {
       }
     },
     {
-      name: 'Start',
+      name: 'AI',
       monthlyPrice: 34.99,
       yearlyPrice: 377.89,
       conversations: 'Up to 1,000 conversations/month',
@@ -46,22 +46,6 @@ export const PricingSection = () => {
         'Analytics dashboard': true,
         'Instagram & Facebook Integration': false,
         'Priority support': false,
-        'Custom integrations': false
-      }
-    },
-    {
-      name: 'Growth',
-      monthlyPrice: 99.99,
-      yearlyPrice: 1079.89,
-      conversations: 'Up to 3,000 conversations/month',
-      features: {
-        'Chat Flows Automation': true,
-        'WhatsApp Business API Hosting': true,
-        'Multi-language support': true,
-        'AI chat capabilities': true,
-        'Analytics dashboard': true,
-        'Instagram & Facebook Integration': true,
-        'Priority support': true,
         'Custom integrations': false
       }
     }
@@ -220,7 +204,7 @@ export const PricingSection = () => {
           <div className="max-w-3xl mx-auto bg-white rounded-lg p-6 shadow-sm">
             <h3 className="text-xl font-semibold text-gray-800 mb-4">Understanding Conversation-Based Pricing</h3>
             <p className="text-gray-600">
-              Conversation-based pricing empowers you to drive more engagement with your audience. A conversation is open for 24 hours* with an unlimited number of messages.
+              Conversation-based pricing empowers you to drive more engagement with your audience. A conversation is open for 24 hours* with an unlimited number of messages. First 1,000 inbound conversations are free of charge.
             </p>
             <p className="text-sm text-gray-500 mt-4">
               * A conversation starts when a customer messages you and includes all messages exchanged within the next 24 hours.
