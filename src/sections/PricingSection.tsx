@@ -34,7 +34,7 @@ export const PricingSection = () => {
       }
     },
     {
-      name: 'AI',
+      name: 'Starter AI',
       monthlyPrice: 34.99,
       yearlyPrice: 377.89,
       conversations: 'Up to 1,000 conversations/month',
@@ -44,8 +44,8 @@ export const PricingSection = () => {
         'Multi-language support': true,
         'AI chat capabilities': true,
         'Analytics dashboard': true,
-        'Instagram & Facebook Integration': false,
-        'Priority support': false,
+        'Instagram & Facebook Integration': true,
+        'Priority support': true,
         'Custom integrations': false
       }
     }
