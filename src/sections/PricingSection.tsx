@@ -18,23 +18,6 @@ export const PricingSection = () => {
 
   const plans = [
     {
-      name: 'Beta Access',
-      isBeta: true,
-      monthlyPrice: 0,
-      yearlyPrice: 0,
-      conversations: 'Unlimited during beta',
-      features: {
-        'Chat Flows Automation': true,
-        'WhatsApp Business API Hosting': true,
-        'Multi-language support': true,
-        'AI chat capabilities': true,
-        'Analytics dashboard': true,
-        'Instagram & Facebook Integration': true,
-        'Priority support': true,
-        'Custom integrations': true
-      }
-    },
-    {
       name: 'Msingi',
       monthlyPrice: 0.49,
       yearlyPrice: 5.29,
@@ -116,7 +99,7 @@ export const PricingSection = () => {
             Simple, Transparent Pricing
           </h2>
           <p className="text-xl text-gray-600">
-            Join our beta and get 3 months free + 50% off for your first year
+            Choose the plan that best fits your business needs
           </p>
           
           <div className="mt-8 flex items-center justify-center space-x-4">
@@ -145,23 +128,15 @@ export const PricingSection = () => {
           {plans.map((plan, index) => (
             <div 
               key={index} 
-              className={`bg-white rounded-xl shadow-lg overflow-hidden flex-1 transform transition-all hover:-translate-y-1 ${
-                plan.isBeta ? 'border-2 border-blue-500' : ''
-              }`}
+              className="bg-white rounded-xl shadow-lg overflow-hidden flex-1 transform transition-all hover:-translate-y-1"
             >
-              <div className={`${plan.isBeta ? 'bg-blue-900' : 'bg-gray-800'} p-6 text-white text-center`}>
+              <div className="bg-gray-800 p-6 text-white text-center">
                 <h3 className="text-xl font-bold mb-1">{plan.name}</h3>
-                <p className="opacity-90">{plan.isBeta ? 'Limited time offer' : '\u00A0'}</p>
+                <p className="opacity-90">&nbsp;</p>
               </div>
               <div className="p-6">
                 <div className="text-center mb-6">
-                  {plan.isBeta ? (
-                    <>
-                      <span className="text-4xl font-bold text-gray-800">Free</span>
-                      <span className="text-gray-600 ml-2">for 3 months</span>
-                      <p className="text-gray-600 mt-2">Then 50% off any plan for 1 year!</p>
-                    </>
-                  ) : plan.monthlyPrice === null ? (
+                  {plan.monthlyPrice === null ? (
                     <>
                       <span className="text-3xl font-bold text-gray-800">Custom</span>
                       <p className="text-sm text-gray-600 mt-2">Contact us for pricing</p>
@@ -198,16 +173,7 @@ export const PricingSection = () => {
                 </div>
                 
                 <div className="flex items-center justify-center mt-8">
-                  {plan.isBeta ? (
-                    <Link
-                      to="/signup"         
-                      className="w-full h-14 rounded-md bg-blue-900 hover:bg-blue-700 text-white
-                               transition-all transform hover:scale-105 font-medium
-                               flex items-center justify-center"
-                    >
-                      Join Free Beta
-                    </Link>
-                  ) : plan.name === 'Enterprise' ? (
+                  {plan.name === 'Enterprise' ? (
                     <a
                       href="https://wa.me/254700000000"
                       className="w-full h-14 rounded-md bg-gray-800 hover:bg-gray-700
@@ -217,21 +183,16 @@ export const PricingSection = () => {
                       Contact Sales
                     </a>
                   ) : (
-                    <button
-                      className="w-full h-14 rounded-md bg-gray-200 text-gray-800
-                               hover:bg-gray-300 transition-colors font-medium
+                    <Link
+                      to="/signup"
+                      className="w-full h-14 rounded-md bg-blue-900 hover:bg-blue-700
+                               text-white transition-colors font-medium
                                flex items-center justify-center"
-                      disabled
                     >
-                      <Lock className="h-5 w-5 mr-2" />
-                      Coming Soon
-                    </button>
+                      Join Waitlist
+                    </Link>
                   )}
                 </div>
-
-                {plan.isBeta && (
-                  <p className="text-sm text-gray-500 text-center mt-4">No credit card required</p>
-                )}
               </div>
             </div>
           ))}
