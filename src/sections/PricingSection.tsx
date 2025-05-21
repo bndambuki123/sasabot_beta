@@ -25,7 +25,7 @@ export const PricingSection = () => {
       features: {
         'Chat Flows Automation': true,
         'WhatsApp Business API Hosting': true,
-        'Multi-language support': false,
+        'Multi-language support': true,
         'AI chat capabilities': false,
         'Analytics dashboard': false,
         'Instagram & Facebook Integration': false,
