@@ -7,12 +7,13 @@ export const PricingSection = () => {
   
   const allFeatures = [
     'Chat Flows Automation',
-    'Order & payment links',
+    'WhatsApp Business API Hosting',
     'Multi-language support',
     'AI chat capabilities',
     'Analytics dashboard',
-    'Instagram & Facebook (Coming Soon)',
-    'Priority support'
+    'Instagram & Facebook Integration',
+    'Priority support',
+    'Custom integrations'
   ];
 
   const plans = [
@@ -24,57 +25,77 @@ export const PricingSection = () => {
       conversations: 'Unlimited during beta',
       features: {
         'Chat Flows Automation': true,
-        'Order & payment links': true,
+        'WhatsApp Business API Hosting': true,
         'Multi-language support': true,
         'AI chat capabilities': true,
         'Analytics dashboard': true,
-        'Instagram & Facebook (Coming Soon)': true,
-        'Priority support': true
+        'Instagram & Facebook Integration': true,
+        'Priority support': true,
+        'Custom integrations': true
       }
     },
     {
       name: 'Msingi',
-      monthlyPrice: 999,
-      yearlyPrice: 9999,
-      conversations: '500 conversations/month',
+      monthlyPrice: 0.49,
+      yearlyPrice: 5.29,
+      conversations: 'Basic automation only',
       features: {
         'Chat Flows Automation': true,
-        'Order & payment links': true,
-        'Multi-language support': true,
+        'WhatsApp Business API Hosting': true,
+        'Multi-language support': false,
         'AI chat capabilities': false,
         'Analytics dashboard': false,
-        'Instagram & Facebook (Coming Soon)': false,
-        'Priority support': false
+        'Instagram & Facebook Integration': false,
+        'Priority support': false,
+        'Custom integrations': false
+      }
+    },
+    {
+      name: 'Start',
+      monthlyPrice: 34.99,
+      yearlyPrice: 377.89,
+      conversations: 'Up to 1,000 conversations/month',
+      features: {
+        'Chat Flows Automation': true,
+        'WhatsApp Business API Hosting': true,
+        'Multi-language support': true,
+        'AI chat capabilities': true,
+        'Analytics dashboard': true,
+        'Instagram & Facebook Integration': false,
+        'Priority support': false,
+        'Custom integrations': false
       }
     },
     {
       name: 'Growth',
-      monthlyPrice: 9999,
-      yearlyPrice: 109999,
-      conversations: '5,000 conversations/month',
+      monthlyPrice: 99.99,
+      yearlyPrice: 1079.89,
+      conversations: 'Up to 3,000 conversations/month',
       features: {
         'Chat Flows Automation': true,
-        'Order & payment links': true,
+        'WhatsApp Business API Hosting': true,
         'Multi-language support': true,
         'AI chat capabilities': true,
         'Analytics dashboard': true,
-        'Instagram & Facebook (Coming Soon)': false,
-        'Priority support': false
+        'Instagram & Facebook Integration': true,
+        'Priority support': true,
+        'Custom integrations': false
       }
     },
     {
-      name: 'Boss',
-      monthlyPrice: 19999,
-      yearlyPrice: 215999,
-      conversations: '10,000 conversations/month',
+      name: 'Enterprise',
+      monthlyPrice: null,
+      yearlyPrice: null,
+      conversations: 'Custom volume',
       features: {
         'Chat Flows Automation': true,
-        'Order & payment links': true,
+        'WhatsApp Business API Hosting': true,
         'Multi-language support': true,
         'AI chat capabilities': true,
         'Analytics dashboard': true,
-        'Instagram & Facebook (Coming Soon)': true,
-        'Priority support': true
+        'Instagram & Facebook Integration': true,
+        'Priority support': true,
+        'Custom integrations': true
       }
     }
   ];
@@ -115,7 +136,7 @@ export const PricingSection = () => {
               />
             </button>
             <span className={`text-sm font-medium ${isYearly ? 'text-green-600' : 'text-gray-500'}`}>
-              Yearly <span className="text-green-600">(Save 15%)</span>
+              Yearly <span className="text-green-600">(Save up to 10%)</span>
             </span>
           </div>
         </div>
@@ -140,11 +161,17 @@ export const PricingSection = () => {
                       <span className="text-gray-600 ml-2">for 3 months</span>
                       <p className="text-gray-600 mt-2">Then 50% off any plan for 1 year!</p>
                     </>
+                  ) : plan.monthlyPrice === null ? (
+                    <>
+                      <span className="text-3xl font-bold text-gray-800">Custom</span>
+                      <p className="text-sm text-gray-600 mt-2">Contact us for pricing</p>
+                    </>
                   ) : (
                     <>
                       <div className="flex items-baseline justify-center">
+                        <span className="text-sm text-gray-600 mr-1">$</span>
                         <span className="text-3xl font-bold text-gray-800">
-                          {(isYearly ? plan.yearlyPrice : plan.monthlyPrice).toLocaleString('en-KE', { style: 'currency', currency: 'KES' }).replace('.00', '')}
+                          {isYearly ? plan.yearlyPrice : plan.monthlyPrice}
                         </span>
                         <span className="text-sm font-normal text-gray-600 ml-1">/{isYearly ? 'yr' : 'mo'}</span>
                       </div>
@@ -180,6 +207,15 @@ export const PricingSection = () => {
                     >
                       Join Free Beta
                     </Link>
+                  ) : plan.name === 'Enterprise' ? (
+                    <a
+                      href="https://wa.me/254700000000"
+                      className="w-full h-14 rounded-md bg-gray-800 hover:bg-gray-700
+                               text-white transition-colors font-medium
+                               flex items-center justify-center"
+                    >
+                      Contact Sales
+                    </a>
                   ) : (
                     <button
                       className="w-full h-14 rounded-md bg-gray-200 text-gray-800
@@ -201,9 +237,21 @@ export const PricingSection = () => {
           ))}
         </div>
         
-        <div className="mt-12 text-center text-gray-600">
-          <p className="text-sm">All prices are in KES and include VAT</p>
-          <p className="text-sm mt-2">Need a custom plan? <a href="https://wa.me/254700000000" className="text-blue-600 hover:text-blue-700">Contact us</a></p>
+        <div className="mt-12 text-center">
+          <div className="max-w-3xl mx-auto bg-white rounded-lg p-6 shadow-sm">
+            <h3 className="text-xl font-semibold text-gray-800 mb-4">Understanding Conversation-Based Pricing</h3>
+            <p className="text-gray-600">
+              Conversation-based pricing empowers you to drive more engagement with your audience. A conversation is open for 24 hours* with an unlimited number of messages. First 1,000 inbound conversations are free of charge.
+            </p>
+            <p className="text-sm text-gray-500 mt-4">
+              * A conversation starts when a customer messages you and includes all messages exchanged within the next 24 hours.
+            </p>
+          </div>
+          
+          <div className="mt-6">
+            <p className="text-sm">All prices are in USD and exclude VAT</p>
+            <p className="text-sm mt-2">Need a custom plan? <a href="https://wa.me/254700000000" className="text-blue-600 hover:text-blue-700">Contact us</a></p>
+          </div>
         </div>
       </div>
     </section>
