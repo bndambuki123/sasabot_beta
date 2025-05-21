@@ -165,14 +165,25 @@ export const PricingSection = () => {
                 </div>
                 
                 <div className="flex items-center justify-center mt-8">
-                  <Link
-                    to="/signup"
-                    className="w-full h-14 rounded-md bg-blue-900 hover:bg-blue-700
-                             text-white transition-colors font-medium
-                             flex items-center justify-center"
-                  >
-                    Join Waitlist
-                  </Link>
+                  {plan.name === 'Msingi' ? (
+                    <Link
+                      to="/signup"
+                      className="w-full h-14 rounded-md bg-blue-900 hover:bg-blue-700
+                               text-white transition-colors font-medium
+                               flex items-center justify-center"
+                    >
+                      Get Started
+                    </Link>
+                  ) : (
+                    <Link
+                      to="/signup"
+                      className="w-full h-14 rounded-md bg-gray-800 hover:bg-gray-700
+                               text-white transition-colors font-medium
+                               flex items-center justify-center"
+                    >
+                      Join Waitlist
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>
