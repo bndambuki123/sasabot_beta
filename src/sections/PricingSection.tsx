@@ -19,8 +19,8 @@ export const PricingSection = () => {
   const standardPlans = [
     {
       name: 'Msingi',
-      monthlyPrice: 0.49,
-      yearlyPrice: 5.29,
+      monthlyPrice: 4.99,
+      yearlyPrice: 53.89,
       conversations: 'Basic automation only',
       features: {
         'Chat Flows Automation': true,
