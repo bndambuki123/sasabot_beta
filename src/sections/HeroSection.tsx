@@ -22,7 +22,7 @@ export const HeroSection = () => {
                 to="/pricing" 
                 className="bg-blue-900 hover:bg-blue-700 text-white px-6 py-3 rounded-md transition-all transform hover:scale-105 font-medium text-center flex items-center justify-center"
               >
-                Join Free Beta
+                Join Now
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
               <Link 
@@ -33,7 +33,7 @@ export const HeroSection = () => {
               </Link>
             </div>
             <p className="text-sm text-gray-500 mt-4">
-              Currently in beta - 3 months free access + 50% discount on future plans
+              Get started from just $4.99/month
             </p>
           </div>
           

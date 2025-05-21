@@ -26,7 +26,7 @@ export const TestimonialsSection = () => {
       name: "Abulahi Mohammed",
       business: "Hardware Store Owner",
       image: "https://i.postimg.cc/nzKZDQ4v/20250517-0109-Somali-Store-Owner-simple-compose-01jvdnp6kne2rrwbb8cgya4aq2.png",
-      quote: "Since we plugged SasaBot into our WhatsApp line, customers get instant answers on stock and pricing—even at 10 p.m.—and my sales team finally has time to focus on the counter, not their phones. It’s like hiring a 24/7 clerk who never asks for a day off."
+      quote: "Since we plugged SasaBot into our WhatsApp line, customers get instant answers on stock and pricing—even at 10 p.m.—and my sales team finally has time to focus on the counter, not their phones. It's like hiring a 24/7 clerk who never asks for a day off."
     }
   ];
 
@@ -74,7 +74,7 @@ export const TestimonialsSection = () => {
             to="/pricing" 
             className="bg-white text-green-600 hover:bg-gray-100 px-8 py-3 rounded-md transition-colors font-medium inline-block"
           >
-            Start Your Free Beta Today
+            Join Now
           </Link>
         </div>
       </div>

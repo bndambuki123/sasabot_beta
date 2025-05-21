@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, ArrowLeft } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export const DemoSection = () => {
@@ -116,16 +116,13 @@ export const DemoSection = () => {
             </button>
           </div>
           
-          {/* Tablet Frame */}
+          {/* Chat Interface */}
           <div className="max-w-md mx-auto bg-gray-800 rounded-[2.5rem] p-4 shadow-xl transform rotate-1 hover:rotate-0 transition-transform duration-300">
-            {/* Tablet Details */}
             <div className="flex justify-between items-center mb-2">
               <div className="w-20 h-1 bg-gray-700 rounded-full mx-auto"></div>
             </div>
             
-            {/* WhatsApp Interface */}
             <div className="bg-white rounded-2xl overflow-hidden">
-              {/* WhatsApp Header */}
               <div className="bg-green-600 text-white p-4 flex items-center">
                 <img 
                   src="https://i.postimg.cc/KcJwb7W7/Whatsapp-icon.png"
@@ -138,7 +135,6 @@ export const DemoSection = () => {
                 </div>
               </div>
               
-              {/* Chat Area */}
               <div 
                 className="h-[400px] overflow-y-auto p-4 space-y-3"
                 style={{
@@ -168,7 +164,6 @@ export const DemoSection = () => {
                 ))}
               </div>
               
-              {/* Input Area */}
               <div className="bg-gray-50 p-4 flex items-center space-x-3 border-t">
                 <input 
                   type="text" 
@@ -181,7 +176,6 @@ export const DemoSection = () => {
               </div>
             </div>
             
-            {/* Tablet Home Button */}
             <div className="mt-4 flex justify-center">
               <div className="w-12 h-12 rounded-full border-2 border-gray-700"></div>
             </div>
@@ -205,7 +199,7 @@ export const DemoSection = () => {
               to="/pricing" 
               className="bg-blue-900 hover:bg-blue-700 text-white px-8 py-3 rounded-md transition-colors font-medium inline-block"
             >
-              Try SasaBot Free
+              Join Now
             </Link>
           </div>
         </div>
