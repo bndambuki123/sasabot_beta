@@ -241,7 +241,7 @@ export const PricingSection = () => {
           <div className="max-w-3xl mx-auto bg-white rounded-lg p-6 shadow-sm">
             <h3 className="text-xl font-semibold text-gray-800 mb-4">Understanding Conversation-Based Pricing</h3>
             <p className="text-gray-600">
-              Conversation-based pricing empowers you to drive more engagement with your audience. A conversation is open for 24 hours* with an unlimited number of messages. First 1,000 inbound conversations are free of charge.
+              Conversation-based pricing empowers you to drive more engagement with your audience. A conversation is open for 24 hours* with an unlimited number of messages.
             </p>
             <p className="text-sm text-gray-500 mt-4">
               * A conversation starts when a customer messages you and includes all messages exchanged within the next 24 hours.
