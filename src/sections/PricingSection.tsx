@@ -16,7 +16,7 @@ export const PricingSection = () => {
     'Custom integrations'
   ];
 
-  const plans = [
+  const standardPlans = [
     {
       name: 'Msingi',
       monthlyPrice: 0.49,
@@ -64,24 +64,25 @@ export const PricingSection = () => {
         'Priority support': true,
         'Custom integrations': false
       }
-    },
-    {
-      name: 'Enterprise',
-      monthlyPrice: null,
-      yearlyPrice: null,
-      conversations: 'Custom volume',
-      features: {
-        'Chat Flows Automation': true,
-        'WhatsApp Business API Hosting': true,
-        'Multi-language support': true,
-        'AI chat capabilities': true,
-        'Analytics dashboard': true,
-        'Instagram & Facebook Integration': true,
-        'Priority support': true,
-        'Custom integrations': true
-      }
     }
   ];
+
+  const enterprisePlan = {
+    name: 'Enterprise',
+    monthlyPrice: null,
+    yearlyPrice: null,
+    conversations: 'Custom volume',
+    features: {
+      'Chat Flows Automation': true,
+      'WhatsApp Business API Hosting': true,
+      'Multi-language support': true,
+      'AI chat capabilities': true,
+      'Analytics dashboard': true,
+      'Instagram & Facebook Integration': true,
+      'Priority support': true,
+      'Custom integrations': true
+    }
+  };
 
   const sortFeatures = (plan) => {
     return [...allFeatures].sort((a, b) => {
@@ -124,8 +125,8 @@ export const PricingSection = () => {
           </div>
         </div>
         
-        <div className="flex flex-col md:flex-row gap-6 justify-center">
-          {plans.map((plan, index) => (
+        <div className="flex flex-col md:flex-row gap-6 justify-center mb-8">
+          {standardPlans.map((plan, index) => (
             <div 
               key={index} 
               className="bg-white rounded-xl shadow-lg overflow-hidden flex-1 transform transition-all hover:-translate-y-1"
@@ -136,23 +137,14 @@ export const PricingSection = () => {
               </div>
               <div className="p-6">
                 <div className="text-center mb-6">
-                  {plan.monthlyPrice === null ? (
-                    <>
-                      <span className="text-3xl font-bold text-gray-800">Custom</span>
-                      <p className="text-sm text-gray-600 mt-2">Contact us for pricing</p>
-                    </>
-                  ) : (
-                    <>
-                      <div className="flex items-baseline justify-center">
-                        <span className="text-sm text-gray-600 mr-1">$</span>
-                        <span className="text-3xl font-bold text-gray-800">
-                          {isYearly ? plan.yearlyPrice : plan.monthlyPrice}
-                        </span>
-                        <span className="text-sm font-normal text-gray-600 ml-1">/{isYearly ? 'yr' : 'mo'}</span>
-                      </div>
-                      <p className="text-sm text-gray-600 mt-2">{plan.conversations}</p>
-                    </>
-                  )}
+                  <div className="flex items-baseline justify-center">
+                    <span className="text-sm text-gray-600 mr-1">$</span>
+                    <span className="text-3xl font-bold text-gray-800">
+                      {isYearly ? plan.yearlyPrice : plan.monthlyPrice}
+                    </span>
+                    <span className="text-sm font-normal text-gray-600 ml-1">/{isYearly ? 'yr' : 'mo'}</span>
+                  </div>
+                  <p className="text-sm text-gray-600 mt-2">{plan.conversations}</p>
                 </div>
                 
                 <div className="min-h-[320px]">
@@ -173,29 +165,44 @@ export const PricingSection = () => {
                 </div>
                 
                 <div className="flex items-center justify-center mt-8">
-                  {plan.name === 'Enterprise' ? (
-                    <a
-                      href="https://wa.me/254700000000"
-                      className="w-full h-14 rounded-md bg-gray-800 hover:bg-gray-700
-                               text-white transition-colors font-medium
-                               flex items-center justify-center"
-                    >
-                      Contact Sales
-                    </a>
-                  ) : (
-                    <Link
-                      to="/signup"
-                      className="w-full h-14 rounded-md bg-blue-900 hover:bg-blue-700
-                               text-white transition-colors font-medium
-                               flex items-center justify-center"
-                    >
-                      Join Waitlist
-                    </Link>
-                  )}
+                  <Link
+                    to="/signup"
+                    className="w-full h-14 rounded-md bg-blue-900 hover:bg-blue-700
+                             text-white transition-colors font-medium
+                             flex items-center justify-center"
+                  >
+                    Join Waitlist
+                  </Link>
                 </div>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Enterprise Plan */}
+        <div className="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all hover:-translate-y-1">
+          <div className="bg-gray-800 p-6 text-white text-center">
+            <h3 className="text-xl font-bold mb-1">{enterprisePlan.name}</h3>
+            <p className="text-sm opacity-90">For large-scale operations</p>
+          </div>
+          <div className="p-6">
+            <div className="md:flex items-center justify-between">
+              <div className="text-center md:text-left mb-6 md:mb-0">
+                <span className="text-3xl font-bold text-gray-800">Custom Pricing</span>
+                <p className="text-gray-600 mt-2">Tailored solutions for your business needs</p>
+              </div>
+              <div className="flex-shrink-0">
+                <a
+                  href="https://wa.me/254700000000"
+                  className="inline-block px-8 h-14 rounded-md bg-gray-800 hover:bg-gray-700
+                           text-white transition-colors font-medium
+                           flex items-center justify-center"
+                >
+                  Contact Sales
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
         
         <div className="mt-12 text-center">
