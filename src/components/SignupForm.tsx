@@ -190,10 +190,324 @@ const SignupForm = () => {
     }
   };
 
+  if (formState.submitted) {
+    return (
+      <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-8 text-center">
+        <div className="bg-green-100 text-green-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
+          <Check className="h-8 w-8" />
+        </div>
+        <h3 className="text-2xl font-bold text-gray-800 mb-4">Thank You!</h3>
+        <p className="text-gray-600 mb-6">
+          Your application for the SasaBot beta program has been received. We'll be in touch within 24 hours with your account setup details.
+        </p>
+        <p className="text-gray-600">
+          In the meantime, why not <a href="https://wa.me/254700000000" className="text-green-600 font-medium">chat with us on WhatsApp</a> if you have any questions?
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className="max-w-4xl mx-auto">
       <Toaster position="top-right" />
-      {/* Form UI continues here... */}
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <FormSection title="Contact Information">
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-1">
+                Full Name *
+              </label>
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                value={formState.fullName}
+                onChange={handleInputChange}
+                className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 ${
+                  formErrors.fullName ? 'border-red-500 focus:ring-red-200' : 'border-gray-300 focus:ring-green-200'
+                }`}
+                placeholder="Your full name"
+              />
+              {formErrors.fullName && <p className="mt-1 text-sm text-red-600">{formErrors.fullName}</p>}
+            </div>
+
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                Email Address *
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formState.email}
+                onChange={handleInputChange}
+                className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 ${
+                  formErrors.email ? 'border-red-500 focus:ring-red-200' : 'border-gray-300 focus:ring-green-200'
+                }`}
+                placeholder="you@example.com"
+              />
+              {formErrors.email && <p className="mt-1 text-sm text-red-600">{formErrors.email}</p>}
+            </div>
+
+            <div>
+              <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-700 mb-1">
+                WhatsApp Number
+              </label>
+              <input
+                type="tel"
+                id="phoneNumber"
+                name="phoneNumber"
+                value={formState.phoneNumber}
+                onChange={handleInputChange}
+                className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 ${
+                  formErrors.phoneNumber ? 'border-red-500 focus:ring-red-200' : 'border-gray-300 focus:ring-green-200'
+                }`}
+                placeholder="+254 or 07..."
+              />
+              {formErrors.phoneNumber && <p className="mt-1 text-sm text-red-600">{formErrors.phoneNumber}</p>}
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Preferred Contact Method
+              </label>
+              <div className="space-y-2">
+                {contactMethods.map(method => (
+                  <label key={method} className="flex items-center">
+                    <input
+                      type="radio"
+                      name="preferredContact"
+                      value={method}
+                      checked={formState.preferredContact === method}
+                      onChange={handleInputChange}
+                      className="h-4 w-4 text-green-600 focus:ring-green-500"
+                    />
+                    <span className="ml-2 text-gray-700">{method}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+          </div>
+        </FormSection>
+
+        <FormSection title="Business Information">
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <label htmlFor="businessName" className="block text-sm font-medium text-gray-700 mb-1">
+                Business Name *
+              </label>
+              <input
+                type="text"
+                id="businessName"
+                name="businessName"
+                value={formState.businessName}
+                onChange={handleInputChange}
+                className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 ${
+                  formErrors.businessName ? 'border-red-500 focus:ring-red-200' : 'border-gray-300 focus:ring-green-200'
+                }`}
+                placeholder="Your business name"
+              />
+              {formErrors.businessName && <p className="mt-1 text-sm text-red-600">{formErrors.businessName}</p>}
+            </div>
+
+            <div>
+              <label htmlFor="industrySector" className="block text-sm font-medium text-gray-700 mb-1">
+                Industry Sector
+              </label>
+              <select
+                id="industrySector"
+                name="industrySector"
+                value={formState.industrySector}
+                onChange={handleInputChange}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-200"
+              >
+                <option value="">Select industry</option>
+                {industries.map(industry => (
+                  <option key={industry} value={industry}>{industry}</option>
+                ))}
+              </select>
+            </div>
+
+            <div>
+              <label htmlFor="companySize" className="block text-sm font-medium text-gray-700 mb-1">
+                Company Size
+              </label>
+              <select
+                id="companySize"
+                name="companySize"
+                value={formState.companySize}
+                onChange={handleInputChange}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-200"
+              >
+                <option value="">Select size</option>
+                {companySizes.map(size => (
+                  <option key={size} value={size}>{size} employees</option>
+                ))}
+              </select>
+            </div>
+
+            <div>
+              <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-1">
+                City *
+              </label>
+              <input
+                type="text"
+                id="city"
+                name="businessLocation.city"
+                value={formState.businessLocation.city}
+                onChange={handleInputChange}
+                className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 ${
+                  formErrors.city ? 'border-red-500 focus:ring-red-200' : 'border-gray-300 focus:ring-green-200'
+                }`}
+                placeholder="Your city"
+              />
+              {formErrors.city && <p className="mt-1 text-sm text-red-600">{formErrors.city}</p>}
+            </div>
+          </div>
+        </FormSection>
+
+        <FormSection title="Customer Interaction">
+          <div className="space-y-6">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Current Customer Communication Channels
+              </label>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {customerChannels.map(channel => (
+                  <label key={channel} className="flex items-center">
+                    <input
+                      type="checkbox"
+                      name="customerChannels"
+                      value={channel}
+                      checked={formState.customerChannels.includes(channel)}
+                      onChange={handleCheckboxChange}
+                      className="h-4 w-4 text-green-600 focus:ring-green-500 rounded"
+                    />
+                    <span className="ml-2 text-gray-700">{channel}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <label htmlFor="customerEnquiries" className="block text-sm font-medium text-gray-700 mb-1">
+                Average Daily Customer Enquiries
+              </label>
+              <select
+                id="customerEnquiries"
+                name="customerEnquiries"
+                value={formState.customerEnquiries}
+                onChange={handleInputChange}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-200"
+              >
+                <option value="">Select range</option>
+                {enquiryRanges.map(range => (
+                  <option key={range} value={range}>{range} enquiries per day</option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </FormSection>
+
+        <FormSection title="Beta Program Preferences">
+          <div className="space-y-6">
+            <div>
+              <label htmlFor="expectations" className="block text-sm font-medium text-gray-700 mb-1">
+                What do you hope to achieve with SasaBot?
+              </label>
+              <textarea
+                id="expectations"
+                name="expectations"
+                value={formState.expectations}
+                onChange={handleInputChange}
+                rows={4}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-200"
+                placeholder="Tell us your goals and expectations..."
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                How would you prefer to provide feedback?
+              </label>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {feedbackMethods.map(method => (
+                  <label key={method} className="flex items-center">
+                    <input
+                      type="checkbox"
+                      name="feedbackPreference"
+                      value={method}
+                      checked={formState.feedbackPreference.includes(method)}
+                      onChange={handleCheckboxChange}
+                      className="h-4 w-4 text-green-600 focus:ring-green-500 rounded"
+                    />
+                    <span className="ml-2 text-gray-700">{method}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <label htmlFor="referralSource" className="block text-sm font-medium text-gray-700 mb-1">
+                How did you hear about SasaBot?
+              </label>
+              <select
+                id="referralSource"
+                name="referralSource"
+                value={formState.referralSource}
+                onChange={handleInputChange}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-200"
+              >
+                <option value="">Select source</option>
+                {referralSources.map(source => (
+                  <option key={source} value={source}>{source}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </FormSection>
+
+        <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+          <div className="space-y-4">
+            <label className="flex items-start">
+              <input
+                type="checkbox"
+                name="shareData"
+                checked={formState.shareData}
+                onChange={handleCheckboxChange}
+                className="h-4 w-4 mt-1 text-green-600 focus:ring-green-500 rounded"
+              />
+              <span className="ml-2 text-gray-700">
+                I agree to share anonymous usage data to help improve SasaBot
+              </span>
+            </label>
+
+            <label className="flex items-start">
+              <input
+                type="checkbox"
+                name="agreeToTerms"
+                checked={formState.agreeToTerms}
+                onChange={handleCheckboxChange}
+                className="h-4 w-4 mt-1 text-green-600 focus:ring-green-500 rounded"
+              />
+              <span className="ml-2 text-gray-700">
+                I agree to receive updates about SasaBot and provide feedback during the beta program *
+              </span>
+            </label>
+            {formErrors.agreeToTerms && <p className="text-sm text-red-600">{formErrors.agreeToTerms}</p>}
+          </div>
+
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className={`mt-6 w-full bg-blue-900 text-white px-6 py-3 rounded-md font-medium
+              ${isSubmitting ? 'opacity-75 cursor-not-allowed' : 'hover:bg-blue-700'} 
+              transition-colors`}
+          >
+            {isSubmitting ? 'Submitting...' : 'Submit Application'}
+          </button>
+        </div>
+      </form>
     </div>
   );
 };
