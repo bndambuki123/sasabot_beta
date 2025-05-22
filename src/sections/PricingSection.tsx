@@ -35,8 +35,8 @@ export const PricingSection = () => {
     },
     {
       name: 'AI',
-      monthlyPrice: 34.99,
-      yearlyPrice: 377.89,
+      monthlyPrice: 24.99,
+      yearlyPrice: 269.89,
       conversations: 'Full AI automation',
       features: {
         'Chat Flows Automation': true,
