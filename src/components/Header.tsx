@@ -43,10 +43,10 @@ export const Header = () => {
           
           <div className="hidden md:block">
             <Link 
-              to="/signup" 
+              to="/pricing" 
               className="bg-blue-900 hover:bg-blue-700 text-white px-6 py-2 rounded-md transition-colors font-medium"
             >
-              Join Beta
+              Join Now
             </Link>
           </div>
           
@@ -91,11 +91,11 @@ export const Header = () => {
               FAQ
             </Link>
             <Link 
-              to="/signup" 
+              to="/pricing" 
               className="bg-blue-900 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-colors font-medium text-center"
               onClick={() => setIsMenuOpen(false)}
             >
-              Join Beta
+              Join Now
             </Link>
           </nav>
         </div>
