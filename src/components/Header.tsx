@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, LogIn } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import { useAuth } from '../lib/auth';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const { user } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,7 +43,16 @@ export const Header = () => {
             <Link to="/faq" className="text-gray-700 hover:text-blue-600 transition-colors">FAQ</Link>
           </nav>
           
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center space-x-4">
+            {!user && (
+              <Link 
+                to="/login" 
+                className="text-gray-700 hover:text-blue-600 transition-colors flex items-center"
+              >
+                <LogIn className="h-5 w-5 mr-1" />
+                Login
+              </Link>
+            )}
             <Link 
               to="/pricing" 
               className="bg-blue-900 hover:bg-blue-700 text-white px-6 py-2 rounded-md transition-colors font-medium"
@@ -90,6 +101,16 @@ export const Header = () => {
             >
               FAQ
             </Link>
+            {!user && (
+              <Link
+                to="/login"
+                className="text-gray-700 hover:text-blue-600 transition-colors flex items-center"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <LogIn className="h-5 w-5 mr-1" />
+                Login
+              </Link>
+            )}
             <Link 
               to="/pricing" 
               className="bg-blue-900 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-colors font-medium text-center"
