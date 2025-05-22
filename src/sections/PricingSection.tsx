@@ -34,7 +34,7 @@ export const PricingSection = () => {
       }
     },
     {
-      name: 'Starter AI',
+      name: 'AI',
       monthlyPrice: 34.99,
       yearlyPrice: 377.89,
       conversations: 'Full AI automation',
