@@ -37,7 +37,7 @@ export const PricingSection = () => {
       name: 'Starter AI',
       monthlyPrice: 34.99,
       yearlyPrice: 377.89,
-      conversations: 'Up to 1,000 conversations/month',
+      conversations: 'Full AI automation',
       features: {
         'Chat Flows Automation': true,
         'WhatsApp Business API Hosting': true,
@@ -117,18 +117,17 @@ export const PricingSection = () => {
             >
               <div className="bg-gray-800 p-6 text-white text-center">
                 <h3 className="text-xl font-bold mb-1">{plan.name}</h3>
-                <p className="opacity-90">&nbsp;</p>
+                <p className="opacity-90">{plan.conversations}</p>
               </div>
               <div className="p-6">
                 <div className="text-center mb-6">
                   <div className="flex items-baseline justify-center">
-                    <span className="text-sm text-gray-600 mr-1">$</span>
+                    <span className="text-sm text-gray-600 mr-1">From $</span>
                     <span className="text-3xl font-bold text-gray-800">
                       {isYearly ? plan.yearlyPrice : plan.monthlyPrice}
                     </span>
                     <span className="text-sm font-normal text-gray-600 ml-1">/{isYearly ? 'yr' : 'mo'}</span>
                   </div>
-                  <p className="text-sm text-gray-600 mt-2">{plan.conversations}</p>
                 </div>
                 
                 <div className="min-h-[320px]">
@@ -202,12 +201,9 @@ export const PricingSection = () => {
         
         <div className="mt-12 text-center">
           <div className="max-w-3xl mx-auto bg-white rounded-lg p-6 shadow-sm">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">Understanding Conversation-Based Pricing</h3>
+            <h3 className="text-xl font-semibold text-gray-800 mb-4">Understanding Our Pricing</h3>
             <p className="text-gray-600">
-              Conversation-based pricing empowers you to drive more engagement with your audience. A conversation is open for 24 hours* with an unlimited number of messages. First 1,000 inbound conversations are free of charge.
-            </p>
-            <p className="text-sm text-gray-500 mt-4">
-              * A conversation starts when a customer messages you and includes all messages exchanged within the next 24 hours.
+              Our pricing is designed to grow with your business. Start with our basic plan and upgrade as your needs expand. All plans include core features with advanced capabilities in higher tiers.
             </p>
           </div>
           
